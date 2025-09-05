@@ -1,0 +1,723 @@
+<html class="h-full" lang="en"><head>
+    <meta charSet="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossOrigin="anonymous"
+    />
+    <link
+      id="google-fonts-link"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/8e98006f77.js"
+      crossOrigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>:root { --accent-color: #d95f02; --accent2-color: #7570b3; --accent3-color: #1b9e77; --accent4-color: #e7298a; --primary-color: #325288; --dark-text-color: #333333; --gray-text-color: #666666; --button-padding-x: 15px; --button-padding-y: 10px; --font-family-body: 'Roboto', sans-serif; --light-text-color: #ffffff; --dark-border-color: #333333; --light-border-color: #e1e1e1; --font-family-heading: 'Poppins', sans-serif; --button-rounded-radius: 5px; --dark-background-color: #20232a; --light-background-color: #d4e0f0; --medium-background-color: #a8c1dc; --primary-button-text-color: #ffffff; --secondary-button-bg-color: #f4f4f4; --secondary-button-text-color: #325288; --primary-button-hover-bg-color: #1d3b5e; --primary-button-hover-text-color: #ffffff; --secondary-button-hover-bg-color: #e0e0e0; --secondary-button-hover-text-color: #325288; }</style>
+    <style>
+
+.hovered-element {
+  outline: #3871E0 dashed 2px;
+}
+
+.clicked-element {
+  outline: #3871E0 solid 2px;
+}
+
+.clicked-code-section {
+  border: #3B82F6 solid 2px;
+}
+</style>
+    
+  </head><body class="h-full bg-white">
+    <div class="frame-root">
+      <div class="frame-content">
+        <div class="[font-family:var(--font-family-body)]"><div><header class="code-section bg-white shadow-md relative z-50" id="global-header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <h1 class="text-3xl font-bold text-[var(--primary-color)] font-[var(--font-family-heading)]">
+            Руен
+          </h1>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex space-x-8">
+        <a href="/za-nas" class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] px-3 py-2 text-sm font-medium transition-colors duration-300">За Нас</a>
+        <a href="/produkti" class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] px-3 py-2 text-sm font-medium transition-colors duration-300">Продукти</a>
+        <a href="/poddruzka" class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] px-3 py-2 text-sm font-medium transition-colors duration-300">Поддръжка</a>
+        <a href="/kontakti" class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] px-3 py-2 text-sm font-medium transition-colors duration-300">Контакти</a>
+      </nav>
+
+      <!-- Desktop CTA Button -->
+      <div class="hidden lg:block">
+        <a href="/kontakti" class="bg-[var(--primary-color)] text-[var(--primary-button-text-color)] px-6 py-3 rounded-md text-sm font-medium hover:bg-[var(--primary-button-hover-bg-color)] transition-colors duration-300 shadow-lg">
+          Запитване за продукт
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="lg:hidden">
+        <button data-landingsite-mobile-menu-toggle="" class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] focus:outline-none focus:text-[var(--primary-color)] transition-colors duration-300">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div data-landingsite-mobile-menu="" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-[var(--light-border-color)] z-40">
+      <div class="px-4 py-6 space-y-4">
+        <a href="/za-nas" class="block text-[var(--dark-text-color)] hover:text-[var(--primary-color)] py-2 text-base font-medium transition-colors duration-300">За Нас</a>
+        <a href="/produkti" class="block text-[var(--dark-text-color)] hover:text-[var(--primary-color)] py-2 text-base font-medium transition-colors duration-300">Продукти</a>
+        <a href="/poddruzka" class="block text-[var(--dark-text-color)] hover:text-[var(--primary-color)] py-2 text-base font-medium transition-colors duration-300">Поддръжка</a>
+        <a href="/kontakti" class="block text-[var(--dark-text-color)] hover:text-[var(--primary-color)] py-2 text-base font-medium transition-colors duration-300">Контакти</a>
+        <div class="pt-4">
+          <a href="/kontakti" class="block w-full text-center bg-[var(--primary-color)] text-[var(--primary-button-text-color)] px-6 py-3 rounded-md text-base font-medium hover:bg-[var(--primary-button-hover-bg-color)] transition-colors duration-300 shadow-lg">
+            Запитване за продукт
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+</div><div><section class="code-section relative min-h-screen flex items-center justify-center overflow-hidden" id="shn7wen">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/7ac89ed3-bce5-46b4-b84e-493b03e1e900/publicContain" alt="Wooden brown vanity counter, white washbasin, mirror cabinet in sunlight on wall for modern, luxury bathroom interior design decoration, product background 3D" data-media="{&quot;id&quot;:&quot;2151848275&quot;,&quot;src&quot;:&quot;iStock&quot;,&quot;type&quot;:&quot;image&quot;}" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-[var(--dark-background-color)] via-transparent to-transparent opacity-80"></div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8">
+        <!-- Main Heading -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--light-text-color)] leading-tight">
+          Елегантни
+          <span class="text-[var(--accent-color)] block">Банни Решения</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="text-lg sm:text-xl text-gray-200 max-w-2xl leading-relaxed">
+          Специализираме се в производството на висококачествени комплекти
+          шкафове за баня, долни и горни шкафове, както и стилни огледала за
+          баня. Създаваме пространства, които съчетават функционалност с
+          изключителен дизайн.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="/produkti" class="bg-[var(--primary-color)] text-[var(--primary-button-text-color)] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 transform hover:scale-105 shadow-xl">
+            Разгледай Продуктите
+          </a>
+          <a href="/kontakti" class="bg-transparent border-2 border-[var(--accent-color)] text-[var(--accent-color)] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[var(--accent-color)] hover:text-white transition-all duration-300 transform hover:scale-105">
+            Свържи се с нас
+          </a>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 text-[var(--light-text-color)] opacity-90">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-award text-[var(--accent-color)] text-xl"></i>
+            <span class="text-sm">Висококачествени материали</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-tools text-[var(--accent-color)] text-xl"></i>
+            <span class="text-sm">Професионален монтаж</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-star text-[var(--accent-color)] text-xl"></i>
+            <span class="text-sm">Доказано качество</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Feature Cards -->
+      <div class="hidden lg:block space-y-6">
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20 transform hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[var(--accent-color)] rounded-lg flex items-center justify-center">
+              <i class="fas fa-cube text-white text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white">
+                Комплекти Шкафове
+              </h3>
+              <p class="text-gray-300 text-sm">Пълни решения за всяка баня</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20 transform hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[var(--accent3-color)] rounded-lg flex items-center justify-center">
+              <i class="fas fa-mirror text-white text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white">Огледала</h3>
+              <p class="text-gray-300 text-sm">Стилни и функционални</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20 transform hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[var(--accent2-color)] rounded-lg flex items-center justify-center">
+              <i class="fas fa-wrench text-white text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white">
+                Индивидуален подход
+              </h3>
+              <p class="text-gray-300 text-sm">
+                Свържете се за специални поръчки
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating elements -->
+  <div class="absolute top-20 left-10 w-20 h-20 bg-[var(--accent-color)] rounded-full opacity-20 animate-pulse"></div>
+  <div class="absolute bottom-32 right-20 w-16 h-16 bg-[var(--accent3-color)] rounded-full opacity-20 animate-pulse"></div>
+  <div class="absolute top-1/2 right-10 w-12 h-12 bg-[var(--accent2-color)] rounded-full opacity-20 animate-pulse"></div>
+</section>
+
+<section class="code-section py-20 bg-[var(--light-background-color)]" id="sqlxzzh">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--dark-text-color)] mb-6">
+        Нашите <span class="text-[var(--primary-color)]">Продукти</span>
+      </h2>
+      <p class="text-lg text-[var(--gray-text-color)] max-w-3xl mx-auto">
+        Открийте широката ни гама от банни решения - от елегантни комплекти
+        шкафове до стилни огледала, всички създадени с внимание към детайла и
+        високо качество.
+      </p>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <!-- Product 1: Комплекти Шкафове -->
+      <div class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/3b64ee34-a98e-4073-92ed-e18cdafb8d00/public" alt="Modern bathroom interior with marble countertops, wooden cabinets, and a glass shower enclosure featuring elegant lighting and decor." data-media="{&quot;id&quot;:&quot;2181669237&quot;,&quot;src&quot;:&quot;iStock&quot;,&quot;type&quot;:&quot;image&quot;}" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-eye text-2xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-[var(--primary-color)] rounded-lg flex items-center justify-center">
+              <i class="fas fa-cube text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-[var(--dark-text-color)]">
+              Комплекти Шкафове
+            </h3>
+          </div>
+          <p class="text-[var(--gray-text-color)] mb-4">
+            Пълни банни комплекти съчетаващи долни и горни шкафове за максимална
+            функционалност и елегантност.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-[var(--primary-color)] font-semibold">Стандартни опции</span>
+            <i class="fas fa-arrow-right text-[var(--primary-color)] group-hover:translate-x-2 transition-transform duration-300"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2: Долни Шкафове -->
+      <div class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/630e5266-c9c4-4b07-b0e9-3df52275c600/publicContain" alt="A cozy bathroom with a dark wood cabinet, brown quartz countertop, black faucets, and a shower with tan tiled walls and grey herringbone tile floor." data-media="{&quot;id&quot;:&quot;2212593340&quot;,&quot;src&quot;:&quot;iStock&quot;,&quot;type&quot;:&quot;image&quot;}" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-eye text-2xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-[var(--accent-color)] rounded-lg flex items-center justify-center">
+              <i class="fas fa-arrows-alt-v text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-[var(--dark-text-color)]">
+              Долни Шкафове
+            </h3>
+          </div>
+          <p class="text-[var(--gray-text-color)] mb-4">
+            Стилни и практични долни шкафове с изобилие от място за съхранение и
+            модерен дизайн.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-[var(--accent-color)] font-semibold">Различни размери</span>
+            <i class="fas fa-arrow-right text-[var(--accent-color)] group-hover:translate-x-2 transition-transform duration-300"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3: Огледала -->
+      <div class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/acbfd8ad-61a5-40e7-307f-922941ac1000/public" alt="A chic double sink vanity features large mirrors and stylish light fixtures, impeccably coordinated with a marble countertop and fresh flowers for an upscale bathroom look." data-media="{&quot;id&quot;:&quot;2174751938&quot;,&quot;src&quot;:&quot;iStock&quot;,&quot;type&quot;:&quot;image&quot;}" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-eye text-2xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-[var(--accent3-color)] rounded-lg flex items-center justify-center">
+              <i class="fas fa-mirror text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-[var(--dark-text-color)]">
+              Банни Огледала
+            </h3>
+          </div>
+          <p class="text-[var(--gray-text-color)] mb-4">
+            Изискани огледала в различни форми и стилове, допълващи перфектно
+            вашия банен интериор.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-[var(--accent3-color)] font-semibold">Различни дизайни</span>
+            <i class="fas fa-arrow-right text-[var(--accent3-color)] group-hover:translate-x-2 transition-transform duration-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center">
+      <a href="/produkti" class="inline-flex items-center gap-3 bg-[var(--primary-color)] text-[var(--primary-button-text-color)] px-8 py-4 rounded-xl text-lg font-semibold hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 transform hover:scale-105 shadow-xl">
+        <i class="fas fa-th-large"></i>
+        Разгледай всички продукти
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="code-section py-20 bg-[var(--dark-background-color)] relative overflow-hidden" id="sqopypl">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-0 left-0 w-full h-full bg-repeat opacity-20 bg-[url('data:image/svg+xml,<svg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><g fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;><g fill=&quot;%23ffffff&quot; fill-opacity=&quot;0.1&quot;><circle cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;4&quot;/></g></svg>')]"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--light-text-color)] mb-6">
+        Наши <span class="text-[var(--accent-color)]">Реализации</span>
+      </h2>
+      <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+        Разгледайте някои от нашите най-успешни проекти и се вдъхновете за
+        вашата бъдеща баня.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <!-- Project 1 -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-500">
+        <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/f9578288-18d8-4154-2364-1aa458c9d800/publicContain" alt="A white bathroom with gold lights, faucet, and light and a shower with marble tiles." data-media="{&quot;id&quot;:&quot;2173201333&quot;,&quot;src&quot;:&quot;iStock&quot;,&quot;type&quot;:&quot;image&quot;}" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 class="text-xl font-bold mb-2">Луксозна Модерна Баня</h3>
+          <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Елегантни златни акценти с мраморни плочки
+          </p>
+        </div>
+        <div class="absolute top-4 right-4 w-10 h-10 bg-[var(--accent-color)] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <i class="fas fa-eye text-white"></i>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-500">
+        <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/efd0a478-2d6d-450b-f00d-844f3dc01a00/public" alt="Beautiful bathroom with bath and a large window" data-media="{&quot;id&quot;:&quot;1392092286&quot;,&quot;src&quot;:&quot;iStock&quot;,&quot;type&quot;:&quot;image&quot;}" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 class="text-xl font-bold mb-2">Просторна Семейна Баня</h3>
+          <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Естествена светлина и функционални решения
+          </p>
+        </div>
+        <div class="absolute top-4 right-4 w-10 h-10 bg-[var(--accent-color)] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <i class="fas fa-eye text-white"></i>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-500">
+        <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/691c315b-41b2-4f02-a835-399278914c00/public" alt="Elegant bathroom featuring a round mirror, white basin, tub, and metallic accents against concrete walls, creating a cozy and modern space. 3D Rendering." data-media="{&quot;id&quot;:&quot;2198518885&quot;,&quot;src&quot;:&quot;iStock&quot;,&quot;type&quot;:&quot;image&quot;}" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 class="text-xl font-bold mb-2">Минималистичен Дизайн</h3>
+          <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Съчетание на бетон и метални акценти
+          </p>
+        </div>
+        <div class="absolute top-4 right-4 w-10 h-10 bg-[var(--accent-color)] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <i class="fas fa-eye text-white"></i>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-500">
+        <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/2b851a08-257d-4a4e-0f98-f913b1319a00/public" alt="A spacious modern hotel bathroom with freestanding tub, double sink, toilet and round mirrors." data-media="{&quot;id&quot;:&quot;2213728198&quot;,&quot;src&quot;:&quot;iStock&quot;,&quot;type&quot;:&quot;image&quot;}" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 class="text-xl font-bold mb-2">Хотелски Стил</h3>
+          <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Двойна мивка и свободно стояща вана
+          </p>
+        </div>
+        <div class="absolute top-4 right-4 w-10 h-10 bg-[var(--accent-color)] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <i class="fas fa-eye text-white"></i>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-500 md:col-span-2 lg:col-span-1">
+        <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/86979ade-0271-468d-3d3d-21a6cb9e9400/public" alt="A stylish make up corner. Workspace showcases a round mirror reflecting a simple yet elegant setup, including a wooden table, an open book, and a vase with fresh flowers near an orange wall." data-media="{&quot;id&quot;:&quot;2176236379&quot;,&quot;src&quot;:&quot;iStock&quot;,&quot;type&quot;:&quot;image&quot;}" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 class="text-xl font-bold mb-2">Стилен Гримьорен Кът</h3>
+          <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Функционално пространство с елегантни детайли
+          </p>
+        </div>
+        <div class="absolute top-4 right-4 w-10 h-10 bg-[var(--accent-color)] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <i class="fas fa-eye text-white"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Process Steps -->
+    <div class="grid md:grid-cols-3 gap-8 mt-16">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-[var(--accent-color)] rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-white text-2xl font-bold">1</span>
+        </div>
+        <h3 class="text-xl font-bold text-[var(--light-text-color)] mb-3">
+          Консултация
+        </h3>
+        <p class="text-gray-300">Обсъждаме вашите нужди и предпочитания</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-[var(--accent3-color)] rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-white text-2xl font-bold">2</span>
+        </div>
+        <h3 class="text-xl font-bold text-[var(--light-text-color)] mb-3">
+          Избор на продукти
+        </h3>
+        <p class="text-gray-300">
+          Помагаме ви да изберете подходящите продукти
+        </p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-[var(--accent2-color)] rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-white text-2xl font-bold">3</span>
+        </div>
+        <h3 class="text-xl font-bold text-[var(--light-text-color)] mb-3">
+          Реализация
+        </h3>
+        <p class="text-gray-300">Производство и професионален монтаж</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="code-section py-20 bg-gradient-to-r from-[var(--primary-color)] to-[var(--primary-button-hover-bg-color)] relative overflow-hidden" id="sbwk3jdi">
+  <!-- Background Elements -->
+  <div class="absolute top-20 left-20 w-40 h-40 bg-white rounded-full opacity-5"></div>
+  <div class="absolute bottom-20 right-20 w-32 h-32 bg-[var(--accent-color)] rounded-full opacity-10"></div>
+  <div class="absolute top-1/2 left-10 w-24 h-24 bg-[var(--accent3-color)] rounded-full opacity-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Left Column - Content -->
+      <div class="text-white">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+          Готови сте за нова
+          <span class="text-[var(--accent-color)]">баня</span>?
+        </h2>
+        <p class="text-lg text-blue-100 mb-8 leading-relaxed">
+          Свържете се с нас днес за безплатна консултация и оферта. Нашият екип
+          от специалисти ще ви помогне да създадете банята на мечтите си.
+        </p>
+
+        <!-- Contact Info -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[var(--accent-color)] rounded-lg flex items-center justify-center">
+              <i class="fas fa-phone text-white"></i>
+            </div>
+            <div>
+              <div class="font-semibold">Обадете ни се</div>
+              <div class="text-blue-100">+359 XX XXX XXXX</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[var(--accent3-color)] rounded-lg flex items-center justify-center">
+              <i class="fas fa-envelope text-white"></i>
+            </div>
+            <div>
+              <div class="font-semibold">Пишете ни</div>
+              <div class="text-blue-100">info@ruen.bg</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[var(--accent2-color)] rounded-lg flex items-center justify-center">
+              <i class="fas fa-map-marker-alt text-white"></i>
+            </div>
+            <div>
+              <div class="font-semibold">Посетете ни</div>
+              <div class="text-blue-100">Свържете се за адрес</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mt-12 grid grid-cols-2 gap-6">
+          <div class="flex items-center gap-3">
+            <i class="fas fa-check-circle text-[var(--accent-color)] text-xl"></i>
+            <span class="text-blue-100">Безплатна консултация</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fas fa-check-circle text-[var(--accent-color)] text-xl"></i>
+            <span class="text-blue-100">Бърза доставка</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fas fa-check-circle text-[var(--accent-color)] text-xl"></i>
+            <span class="text-blue-100">Професионален монтаж</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fas fa-check-circle text-[var(--accent-color)] text-xl"></i>
+            <span class="text-blue-100">Гаранция качество</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Contact Form -->
+      <div class="bg-white rounded-3xl p-8 shadow-2xl transform hover:scale-105 transition-all duration-300">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-bold text-[var(--dark-text-color)] mb-2">
+            Поискайте оферта
+          </h3>
+          <p class="text-[var(--gray-text-color)]">
+            Попълнете формата и ще се свържем с вас до 24 часа
+          </p>
+        </div>
+
+        <form data-landingsite-contact-form="" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-[var(--dark-text-color)] mb-2">Име</label>
+              <input type="text" name="name" required="" class="w-full px-4 py-3 border border-[var(--light-border-color)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent outline-none transition-all duration-300" placeholder="Вашето име">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-[var(--dark-text-color)] mb-2">Телефон</label>
+              <input type="tel" name="phone" required="" class="w-full px-4 py-3 border border-[var(--light-border-color)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent outline-none transition-all duration-300" placeholder="Вашият телефон">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-[var(--dark-text-color)] mb-2">Email</label>
+            <input type="email" name="email" required="" class="w-full px-4 py-3 border border-[var(--light-border-color)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent outline-none transition-all duration-300" placeholder="Вашият email">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-[var(--dark-text-color)] mb-2">Продукт от интерес</label>
+            <select name="product" class="w-full px-4 py-3 border border-[var(--light-border-color)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent outline-none transition-all duration-300">
+              <option value="">Изберете продукт</option>
+              <option value="комплект-шкафове">Комплект шкафове</option>
+              <option value="долни-шкафове">Долни шкафове</option>
+              <option value="горни-шкафове">Горни шкафове</option>
+              <option value="огледала">Банни огледала</option>
+              <option value="консултация">Обща консултация</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-[var(--dark-text-color)] mb-2">Съобщение</label>
+            <textarea name="message" rows="4" class="w-full px-4 py-3 border border-[var(--light-border-color)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent outline-none transition-all duration-300 resize-none" placeholder="Разкажете ни повече за вашия проект..."></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-[var(--primary-color)] text-[var(--primary-button-text-color)] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-3">
+            <i class="fas fa-paper-plane"></i>
+            Изпрати запитване
+          </button>
+
+          <p class="text-xs text-[var(--gray-text-color)] text-center">
+            Като изпращате формата, вие се съгласявате с обработката на вашите
+            лични данни.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</div><div><footer class="code-section bg-[var(--dark-background-color)] text-white relative overflow-hidden" id="global-footer">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,<svg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><g fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;><g fill=&quot;%23ffffff&quot; fill-opacity=&quot;0.05&quot;><circle cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;2&quot;/></g></svg>')] bg-repeat"></div>
+  </div>
+
+  <div class="relative z-10">
+    <!-- Main Footer Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+        <!-- Company Info -->
+        <div class="lg:col-span-2">
+          <div class="mb-6">
+            <a href="/" class="flex items-center">
+              <h2 class="text-4xl font-bold text-[var(--accent-color)] font-[var(--font-family-heading)]">
+                Руен
+              </h2>
+            </a>
+          </div>
+          <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            Руен е компания, специализираща се в производството на
+            висококачествени банни мебели. Създаваме елегантни и функционални
+            решения за всеки дом.
+          </p>
+
+          <!-- Contact Info -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3 text-gray-300">
+              <div class="w-10 h-10 bg-[var(--primary-color)] rounded-lg flex items-center justify-center">
+                <i class="fas fa-map-marker-alt text-white text-sm"></i>
+              </div>
+              <span>Свържете се за адрес</span>
+            </div>
+            <div class="flex items-center gap-3 text-gray-300">
+              <div class="w-10 h-10 bg-[var(--accent-color)] rounded-lg flex items-center justify-center">
+                <i class="fas fa-phone text-white text-sm"></i>
+              </div>
+              <span>+359 XX XXX XXXX</span>
+            </div>
+            <div class="flex items-center gap-3 text-gray-300">
+              <div class="w-10 h-10 bg-[var(--accent3-color)] rounded-lg flex items-center justify-center">
+                <i class="fas fa-envelope text-white text-sm"></i>
+              </div>
+              <span>info@ruen.bg</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-xl font-bold text-white mb-6">Бързи Връзки</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="/" class="text-gray-300 hover:text-[var(--accent-color)] transition-colors duration-300 flex items-center gap-2">
+                <i class="fas fa-chevron-right text-xs"></i>
+                Начало
+              </a>
+            </li>
+            <li>
+              <a href="/za-nas" class="text-gray-300 hover:text-[var(--accent-color)] transition-colors duration-300 flex items-center gap-2">
+                <i class="fas fa-chevron-right text-xs"></i>
+                За Нас
+              </a>
+            </li>
+            <li>
+              <a href="/produkti" class="text-gray-300 hover:text-[var(--accent-color)] transition-colors duration-300 flex items-center gap-2">
+                <i class="fas fa-chevron-right text-xs"></i>
+                Продукти
+              </a>
+            </li>
+            <li>
+              <a href="/poddruzka" class="text-gray-300 hover:text-[var(--accent-color)] transition-colors duration-300 flex items-center gap-2">
+                <i class="fas fa-chevron-right text-xs"></i>
+                Поддръжка
+              </a>
+            </li>
+            <li>
+              <a href="/kontakti" class="text-gray-300 hover:text-[var(--accent-color)] transition-colors duration-300 flex items-center gap-2">
+                <i class="fas fa-chevron-right text-xs"></i>
+                Контакти
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h3 class="text-xl font-bold text-white mb-6">Наши Услуги</h3>
+          <ul class="space-y-3">
+            <li>
+              <span class="text-gray-300 flex items-center gap-2">
+                <i class="fas fa-cube text-[var(--primary-color)] text-xs"></i>
+                Комплекти шкафове
+              </span>
+            </li>
+            <li>
+              <span class="text-gray-300 flex items-center gap-2">
+                <i class="fas fa-arrows-alt-v text-[var(--accent-color)] text-xs"></i>
+                Долни шкафове
+              </span>
+            </li>
+            <li>
+              <span class="text-gray-300 flex items-center gap-2">
+                <i class="fas fa-arrows-alt-v text-[var(--accent2-color)] text-xs"></i>
+                Горни шкафове
+              </span>
+            </li>
+            <li>
+              <span class="text-gray-300 flex items-center gap-2">
+                <i class="fas fa-mirror text-[var(--accent3-color)] text-xs"></i>
+                Банни огледала
+              </span>
+            </li>
+            <li>
+              <span class="text-gray-300 flex items-center gap-2">
+                <i class="fas fa-tools text-[var(--accent4-color)] text-xs"></i>
+                Монтаж и поддръжка
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div class="text-gray-400 text-sm">
+            © 2025 Руен. Всички права запазени.
+          </div>
+          <div class="flex items-center gap-6 text-sm">
+            <a href="#" class="text-gray-400 hover:text-[var(--accent-color)] transition-colors duration-300">
+              Условия за ползване
+            </a>
+            <a href="#" class="text-gray-400 hover:text-[var(--accent-color)] transition-colors duration-300">
+              Политика за поверителност
+            </a>
+            <div class="flex items-center gap-2 text-gray-400">
+              <i class="fas fa-heart text-[var(--accent4-color)]"></i>
+              Качествено производство
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</div></div><script src="/embed/main.umd.js"></script>
+      </div>
+    </div>
+  </body></html>

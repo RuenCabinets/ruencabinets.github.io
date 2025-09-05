@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шкафове и огледала Шкаф ООД</title>
+  <link rel="icon" href="https://static.wikia.nocookie.net/malachitemines/images/e/ea/Png_%2874%29.png/revision/latest?cb=20220619082815">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&display=swap');
+
+    body {
+      user-select: none;
+      font-family: "TASA Orbiter", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+      margin: 0; 
+      background: #fafafa;
+      overflow: hidden;
+      overflow-x: hidden !important;
+    }
+    a {
+      cursor: pointer;
+      user-select: none;
+    }
+    .header {
+      background-color: #f1f1f1;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      height: 50px;
+    }
+.star .header {
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  width: 99%;
+  left: -20px;
+}
+
+    .header a {
+      float: left;
+      color: #333;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .header a.logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: dodgerblue;
+    }
+
+    .header a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .header a.active {
+      background-color: rgb(30, 144, 255);
+      color: white;
+    }
+     .header a.unactive {
+      background-color: rgb(220, 220, 220);
+      color: rgb(255, 255, 255);
+    }
+
+    .header-right {
+      float: right;
+    }
+    .header-middle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  z-index: 2;
+  white-space: nowrap;
+}
+.header-middle a {
+  float: none;
+  display: inline-block;
+  text-align: center;
+}
+
+    @media screen and (max-width: 500px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+      .header-right {
+        float: none;
+      }
+    }
+
+    .container {
+      display: flex;      
+      height: calc(100vh - 60px);
+      width: 100vw;       
+    }
+
+    .preview {
+      width: 50vw;
+      height: 100%;
+      object-fit: cover;  
+      display: block;
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+.options {
+  width: 50vw;
+  height: 100%;
+  background-color: white;
+  display: wrap;
+  flex-direction: column;
+  padding: 30px;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  gap: 10px;
+  overflow-y: auto;
+  overflow-x: hidden !important;
+}
+.preview-carousel {
+  position: relative;
+  width: 800px;
+  height: 800px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.preview-image:hover {
+  transform: scale(1.5);
+}
+
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  display: block !important;
+  float: none !important;
+  padding: 10px 15px !important;
+  text-decoration: none;
+  color: #333 !important;
+  white-space: nowrap;
+  font-size: 16px !important;
+  line-height: normal !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  text-align: left !important;
+  margin: 0 !important;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(30, 144, 255) !important;
+  color: white !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.arrow-left { left: 10px; }
+.arrow-right { right: 10px; }
+
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="" class="logo">Шкафове и огледала Руен</a>
+    <div class="header-right">
+      <a class="active" href="">Магазин</a>
+      <a href="връзка-с-нас.html">Връзка с нас</a>
+      <a href="за-нас.html">За нас</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="preview-carousel">
+  <button class="arrow-left">&#10094;</button>
+  <img class="preview-image" src="https://img001.prntscr.com/file/img001/8Sr8V3btTWKTzSXQSE_HWQ.png" />
+  <button class="arrow-right">&#10095;</button>
+</div>
+<div class="options">
+  <div class="header" style="">
+  <div class="header-right">
+      <input 
+  type="text" 
+  id="searchBar" 
+  placeholder="Търсене на продукт..." 
+  style="width: 100%; padding: 10px; margin-bottom: 15px; font-size: 16px; border: 1px solid #ccc; border-radius: 6px;"
+>
+  </div>
+  <div class="header-middle">
+    <a style="margin: 0 10%" id="ogledala" class="unactive" onclick="typeselector = 'ogledala'">Огледала</a>
+    <div class="dropdown">
+  <a id="shkaf" class="unactive" style="margin: 0 10%; cursor: pointer;"
+     onclick="typeselector='shkaf'; setActiveMain(this)">Шкафове</a>
+  <div class="dropdown-content">
+    <a href="#" onclick="event.stopPropagation(); typeselector='shkafup'; setActiveOption(this)">Горни шкафове</a>
+    <a href="#" onclick="event.stopPropagation(); typeselector='shkafdown'; setActiveOption(this)">Долни шкафове</a>
+    <a href="#" onclick="event.stopPropagation(); typeselector='shkafkolona'; setActiveOption(this)">Шкафове колони</a>
+  </div>
+</div>
+    <a style="margin: 0 10%" id="komplekt" class="unactive" onclick="typeselector = 'komplekt'">Комплекти</a>
+    
+    
+
+
+<script>
+  function setActiveMain(el) {
+    el.classList.add('active');
+    const dropdown = el.closest('.dropdown');
+    dropdown.querySelectorAll('.dropdown-content a').forEach(link => link.classList.remove('active'));
+  }
+
+  function setActiveOption(el) {
+    const dropdown = el.closest('.dropdown');
+    dropdown.querySelectorAll('a').forEach(link => link.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+
+
+    </div></div>
+    <hr style="opacity: 0%;"><hr style="opacity: 0%;"><hr style="opacity: 0%;">
+<v-product type="ogledala" onclick="ReplacePreview(['assets/346.1.png', 'assets/346.2.png', 'assets/346.3.png', 'assets/346.4.png', 'assets/346.5.png', 'assets/346.6.png', 'assets/346.7.png', 'assets/346.8.png', 'assets/346.9.png', 'assets/346.10.png'], '346')" productimg="assets/346.1.png" productname="Огледало за баня Париж (346)"></v-product>
+    <v-product type="ogledala" onclick="ReplacePreview(['assets/316.1.png', 'assets/316.2.png', 'assets/316.3.png', 'assets/316.4.png', 'assets/316.5.png', 'assets/316.6.png', 'assets/316.7.png', 'assets/316.8.png', 'assets/316.9.png', 'assets/316.10.png'], '316')" productimg="assets/316.1.png" productname="Огледало Денвър (316)"></v-product>
+<v-product type="ogledala" onclick="ReplacePreview(['assets/314.1.png', 'assets/314.2.png', 'assets/314.3.png', 'assets/314.4.png', 'assets/314.5.png', 'assets/314.6.png', 'assets/314.7.png', 'assets/314.8.png', 'assets/314.9.png', 'assets/314.10.png'], '314')" productimg="assets/314.1.png" productname="Огледало за баня Фиолет (314)"></v-product>
+<v-product type="ogledala" onclick="ReplacePreview(['assets/7127A.1.png', 'assets/7127A.2.png', 'assets/7127A.3.png', 'assets/7127A.4.png', 'assets/7127A.5.png', 'assets/7127A.6.png', 'assets/7127A.7.png', 'assets/7127A.8.png', 'assets/7127A.9.png', 'assets/7127A.10.png'], '7127A')" productimg="assets/7127A.1.png" productname="Огледало Хоумс (7127A)"></v-product>
+
+    <v-product type="ogledala" onclick="ReplacePreview(['assets/317.1.png', 'assets/317.2.png', 'assets/317.3.png', 'assets/317.4.png', 'assets/317.5.png', 'assets/317.6.png', 'assets/317.7.png', 'assets/317.8.png', 'assets/317.9.png', 'assets/317.10.png'], '317')" productimg="assets/317.1.png" productname="Огледало за баня Соренто (317)"></v-product>
+<v-product type="ogledala" onclick="ReplacePreview(['assets/335.1.png', 'assets/335.2.png', 'assets/335.3.png', 'assets/335.4.png', 'assets/335.5.png', 'assets/335.6.png', 'assets/335.7.png', 'assets/335.8.png', 'assets/335.9.png', 'assets/335.10.png'], '335')" productimg="assets/335.1.png" productname="Огледало за баня Савона (335)"></v-product>
+<br>
+<v-product type="ogledala" onclick="ReplacePreview(['assets/347.1.png', 'assets/347.2.png', 'assets/347.3.png', 'assets/347.4.png', 'assets/347.5.png', 'assets/347.6.png', 'assets/347.7.png', 'assets/347.8.png', 'assets/347.9.png', 'assets/347.10.png'], '347')" productimg="assets/347.1.png" productname="Огледало за баня Капа (347)"></v-product>
+
+<v-product type="ogledala" onclick="ReplacePreview(['assets/332.1.png', 'assets/332.2.png', 'assets/332.3.png', 'assets/332.4.png', 'assets/332.5.png', 'assets/332.6.png', 'assets/332.7.png', 'assets/332.8.png', 'assets/332.9.png', 'assets/332.10.png'], '332')" productimg="assets/332.1.png" productname="Огледало за баня Лука (332)"></v-product>
+<v-product type="ogledala" onclick="ReplacePreview(['assets/350.1.png', 'assets/350.2.png', 'assets/350.3.png', 'assets/350.4.png', 'assets/350.5.png', 'assets/350.6.png', 'assets/350.7.png', 'assets/350.8.png', 'assets/350.9.png', 'assets/350.10.png'], '350')" productimg="assets/350.1.png" productname="Огледало за баня Гаранда (350)"></v-product>
+<v-product type="ogledala" onclick="ReplacePreview(['assets/326.1.png', 'assets/326.2.png', 'assets/326.3.png', 'assets/326.4.png', 'assets/326.5.png', 'assets/326.6.png', 'assets/326.7.png', 'assets/326.8.png', 'assets/326.9.png', 'assets/326.10.png'], '326')" productimg="assets/326.1.png" productname="Огледало за баня Парма (326)"></v-product>
+<v-product type="ogledala" onclick="ReplacePreview(['assets/354.1.png', 'assets/354.2.png', 'assets/354.3.png', 'assets/354.4.png', 'assets/354.5.png', 'assets/354.6.png', 'assets/354.7.png', 'assets/354.8.png', 'assets/354.9.png', 'assets/354.10.png'], '354')" productimg="assets/354.1.png" productname="Огледало за баня Дионис (354)"></v-product>
+<v-product type="ogledala" onclick="ReplacePreview(['assets/360.1.png', 'assets/360.2.png', 'assets/360.3.png', 'assets/360.4.png', 'assets/360.5.png', 'assets/360.6.png', 'assets/360.7.png', 'assets/360.8.png', 'assets/360.9.png', 'assets/360.10.png'], '360')" productimg="assets/360.1.png" productname="Огледало за баня Липа (360)"></v-product>
+<v-product type="ogledala" onclick="ReplacePreview(['assets/315.1.png', 'assets/315.2.png', 'assets/315.3.png', 'assets/315.4.png', 'assets/315.5.png', 'assets/315.6.png', 'assets/315.7.png', 'assets/315.8.png', 'assets/315.9.png', 'assets/315.10.png'], '315')" productimg="assets/315.1.png" productname="Огледало за баня Маслина (315)"></v-product>
+<v-product type="shkafdown" onclick="ReplacePreview(['assets/7204A.1.png', 'assets/7204A.2.png', 'assets/7204A.3.png', 'assets/7204A.4.png', 'assets/7204A.5.png', 'assets/7204A.6.png', 'assets/7204A.7.png', 'assets/7204A.8.png', 'assets/7204A.9.png', 'assets/7204A.10.png'], '7204A')" productimg="assets/7204A.1.png" productname="Долен шкаф Калама (7204A)"></v-product>
+<v-product type="shkafdown" onclick="ReplacePreview(['assets/7107.1.png', 'assets/7107.2.png', 'assets/7107.3.png', 'assets/7107.4.png', 'assets/7107.5.png', 'assets/7107.6.png', 'assets/7107.7.png', 'assets/7107.8.png', 'assets/7107.9.png', 'assets/7107.10.png'], '7107')" productimg="assets/7107.1.png" productname="Долен шкаф Нанда (7107)"></v-product>
+<v-product type="shkafdown" onclick="ReplacePreview(['assets/7118B.1.png', 'assets/7118B.2.png', 'assets/7118B.3.png', 'assets/7118B.4.png', 'assets/7118B.5.png', 'assets/7118B.6.png', 'assets/7118B.7.png', 'assets/7118B.8.png', 'assets/7118B.9.png', 'assets/7118B.10.png'], '7118B')" productimg="assets/7118B.1.png" productname="Долен шкаф Мачла (7118B)"></v-product>
+<v-product type="shkafdown" onclick="ReplacePreview(['assets/7127A.1.png', 'assets/7127A.2.png', 'assets/7127A.3.png', 'assets/7127A.4.png', 'assets/7127A.5.png', 'assets/7127A.6.png', 'assets/7127A.7.png', 'assets/7127A.8.png', 'assets/7127A.9.png', 'assets/7127A.10.png'], '7127A')" productimg="assets/7127A.1.png" productname="Долен шкаф Шерлок (7127A)"></v-product>
+<v-product type="shkafdown" onclick="ReplacePreview(['assets/7102C.1.png', 'assets/7102C.2.png', 'assets/7102C.3.png', 'assets/7102C.4.png', 'assets/7102C.5.png', 'assets/7102C.6.png', 'assets/7102C.7.png', 'assets/7102C.8.png', 'assets/7102C.9.png', 'assets/7102C.10.png'], '7102C')" productimg="assets/7102C.1.png" productname="Долен шкаф Ловита (7102C)"></v-product>
+<v-product type="shkafdown" onclick="ReplacePreview(['assets/7140B.1.png', 'assets/7140B.2.png', 'assets/7140B.3.png', 'assets/7140B.4.png', 'assets/7140B.5.png', 'assets/7140B.6.png', 'assets/7140B.7.png', 'assets/7140B.8.png', 'assets/7140B.9.png', 'assets/7140B.10.png'], '7140B')" productimg="assets/7140B.1.png" productname="Долен шкаф Мезтли (7140B)"></v-product>
+<v-product type="shkafdown" onclick="ReplacePreview(['assets/1001.1.png', 'assets/1001.2.png', 'assets/1001.3.png', 'assets/1001.4.png', 'assets/1001.5.png', 'assets/1001.6.png', 'assets/1001.7.png', 'assets/1001.8.png', 'assets/1001.9.png', 'assets/1001.10.png'], '1001')" productimg="assets/1001.1.png" productname="Долен шкаф Падма (1001)"></v-product>
+<v-product type="shkafdown" onclick="ReplacePreview(['assets/7102B.1.png', 'assets/7102B.2.png', 'assets/7102B.3.png', 'assets/7102B.4.png', 'assets/7102B.5.png', 'assets/7102B.6.png', 'assets/7102B.7.png', 'assets/7102B.8.png', 'assets/7102B.9.png', 'assets/7102B.10.png'], '7102B')" productimg="assets/7102B.1.png" productname="Долен шкаф Утара (7102B)"></v-product>
+<v-product type="shkafup" onclick="ReplacePreview(['assets/7139A.1.png', 'assets/7139A.2.png', 'assets/7139A.3.png', 'assets/7139A.4.png', 'assets/7139A.5.png', 'assets/7139A.6.png', 'assets/7139A.7.png', 'assets/7139A.8.png', 'assets/7139A.9.png', 'assets/7139A.10.png'], 'CP54738-A')" productimg="assets/7139A.1.png" productname="Горен шкаф Албия (7139A)"></v-product>
+<v-product type="shkafup" onclick="ReplacePreview(['assets/7140B.1.png', 'assets/7140B.2.png', 'assets/7140B.3.png', 'assets/7140B.4.png', 'assets/7140B.5.png', 'assets/7140B.6.png', 'assets/7140B.7.png', 'assets/7140B.8.png', 'assets/7140B.9.png', 'assets/7140B.10.png'], '7140B')" productimg="assets/7140B.1.png" productname="Горен шкаф Мезтли (7140B)"></v-product>
+<v-product type="shkafkolona" onclick="ReplacePreview(['assets/7623C.1.png', 'assets/7623C.2.png', 'assets/7623C.3.png', 'assets/7623C.4.png', 'assets/7623C.5.png', 'assets/7623C.6.png', 'assets/7623C.7.png', 'assets/7623C.8.png', 'assets/7623C.9.png', 'assets/7623C.10.png'], '7623C')" productimg="assets/7623C.1.png" productname="Шкаф колона Фидли (7623C)"></v-product>
+
+<div class="star"><div class="header">    <a href="" class="logo">Избрахте продукт?</a><div class="header-right">
+      
+      <a id="next"class="unactive" href="">Моля първо изберете продукт</a>
+    </div></div></div>
+</div>
+</div>
+</body>
+<script>
+          class Product extends HTMLElement {
+      constructor() {
+        super();
+        const shadow = this.attachShadow({ mode: 'open' });
+
+        shadow.innerHTML = `
+          <style>
+            .v-product {
+              background-color: aliceblue;
+              width: 200px;
+              height: 200px;
+              position: relative;
+              overflow: hidden;
+              cursor: pointer;
+              display: inline-block;
+              border-radius: 8px;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+              transition: transform 0.2s;
+            }
+            .v-product:hover {
+              transform: scale(1.03);
+            }
+            .productimage {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            .overlay {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              opacity: 0;
+              transition: 0.5s ease;
+              background-color: rgba(54, 54, 54, 0.9);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .v-product:hover .overlay {
+              opacity: 0.75;
+            }
+            .text {
+              color: #fff;
+              font-size: 20px;
+              text-align: center;
+              padding: 0 10px;
+            }
+          </style>
+          <div class="v-product">
+            <img class="productimage" />
+            <div class="overlay">
+              <div class="text"></div>
+            </div>
+          </div>
+        `;
+        const type = this.getAttribute('type')
+        const img = shadow.querySelector('.productimage');
+        const text = shadow.querySelector('.text');
+        img.src = this.getAttribute('productimg') || '';
+        img.alt = this.getAttribute('productname') || 'Product';
+        text.textContent = this.getAttribute('productname') || '';
+this.interval = setInterval(() => {
+  const search = document.getElementById("searchBar")?.value.toLowerCase() || "";
+  const matchesCategory = (typeselector === "all" || type === typeselector || 
+                        (typeselector === "shkaf" && (type === "shkafdown" || type === "shkafup" || type === "shkafkolona")));
+  const productName = (this.getAttribute('productname') || "").toLowerCase();
+  const matchesSearch = productName.includes(search);
+
+  if (matchesCategory && matchesSearch) {
+    this.style.display = "inline-block";
+  } else {
+    this.style.display = "none";
+  }
+}, 100);
+}
+disconnectedCallback() {
+  clearInterval(this.interval);
+}
+}
+  document.querySelector('.star').style.display = 'none';
+  document.querySelector('.preview-carousel').style.display = 'none';
+  let typeselector = 'komplekt';
+  let picked = undefined;
+  let stepsbarcontinueoption = document.getElementById("next");
+    const carousel = {
+  images: [],
+  currentIndex: 0,
+  imgElement: document.querySelector('.preview-image')
+};
+
+function ReplacePreview(imgArray, reason) {
+  document.querySelector('.star').style.display = 'block';
+  document.querySelector('.preview-carousel').style.display = 'block';
+  picked = reason;
+  if (picked!=undefined){
+    stepsbarcontinueoption.href = `addtocart.html?product=${btoa(reason)}`;
+    stepsbarcontinueoption.innerHTML="Продължете";
+    stepsbarcontinueoption.classList.add("active")
+    stepsbarcontinueoption.classList.remove("unactive")
+  }
+  carousel.images = imgArray.slice(0, 10);
+  carousel.currentIndex = 0;
+  updatePreviewImage();
+}
+
+function updatePreviewImage() {
+  if (carousel.images.length > 0) {
+    carousel.imgElement.src = carousel.images[carousel.currentIndex];
+  } else {
+    carousel.imgElement.src = '';
+  }
+}
+
+document.querySelector('.arrow-left').addEventListener('click', () => {
+  if (carousel.images.length === 0) return;
+  carousel.currentIndex = (carousel.currentIndex - 1 + carousel.images.length) % carousel.images.length;
+  updatePreviewImage();
+});
+
+document.querySelector('.arrow-right').addEventListener('click', () => {
+  if (carousel.images.length === 0) return;
+  carousel.currentIndex = (carousel.currentIndex + 1) % carousel.images.length;
+  updatePreviewImage();
+});
+
+carousel.imgElement.addEventListener('mousemove', e => {
+  const rect = e.target.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+  e.target.style.transformOrigin = `${x}% ${y}%`;
+});
+
+carousel.imgElement.addEventListener('mouseleave', e => {
+  e.target.style.transformOrigin = 'center center';
+});
+
+
+
+setInterval(() => {
+  ogledalabutton = document.getElementById('ogledala')
+  shkafbutton = document.getElementById('shkaf')
+  komplektibutton = document.getElementById('komplekt')
+  if(typeselector == 'all'){
+    ogledalabutton.classList = 'unactive';
+    shkafbutton.classList = 'unactive';
+    komplektibutton.classList = 'unactive';
+  }
+  if(typeselector == 'ogledala'){
+    ogledalabutton.classList = 'active';
+    shkafbutton.classList = 'unactive';
+    komplektibutton.classList = 'unactive';
+  }
+  if(typeselector == 'shkaf' || typeselector == 'shkafdown' || typeselector == 'shkafup' || typeselector == 'shkafkolona'){
+    ogledalabutton.classList = 'unactive';
+    shkafbutton.classList = 'active';
+    komplektibutton.classList = 'unactive';
+  }
+  if(typeselector == 'komplekt'){
+    ogledalabutton.classList = 'unactive';
+    shkafbutton.classList = 'unactive';
+    komplektibutton.classList = 'active';
+  }
+  
+}, 100);
+    customElements.define('v-product', Product);
+    function adjustOptions() {
+  const preview = document.querySelector('.preview-carousel');
+  const options = document.querySelector('.options');
+
+  if (!preview || !options) return;
+
+  if (preview.style.display === 'none') {
+    options.style.height = '100%';
+    options.style.flex = '1';
+  } else {
+    options.style.height = '';
+    options.style.flex = '';
+  }
+}
+
+adjustOptions();
+
+setInterval(adjustOptions, 100);
+</script>
+</html>

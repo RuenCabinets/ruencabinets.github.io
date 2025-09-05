@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<title>Количка</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+th { background: #f0f0f0; }
+button { padding: 4px 8px; margin: 0 2px; }
+</style>
+</head>
+<body>
+
+<h2>Вашата количка</h2>
+<a href="?finish">Завършете поръчката</a>
+<a href="index.html">Продължете да пазарувате</a>
+<table id="cartTable">
+<thead>
+<tr>
+<th>Продукт</th>
+<th>Характеристики</th>
+<th>Ед. цена (лв)</th>
+<th>Ед. цена (€)</th>
+<th>Количество</th>
+<th>Действие</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<h3 id="total">Общо: 0 лв / 0 €</h3>
+
+<script>
+const EUR_RATE = 1.95583;
+let cart = [];
+
+// --- Storage ---
+function saveCart() { localStorage.setItem('cart', JSON.stringify(cart)); }
+function loadCart() {
+  const c = localStorage.getItem('cart');
+  if(c) cart = JSON.parse(c);
+}
+
+// --- Helpers ---
+function extractNumber(val) {
+  if(!val) return NaN;
+  const decoded = decodeURIComponent(val.replace(/\+/g,' '));
+  const match = decoded.replace(',','.').match(/-?\d+(\.\d+)?/);
+  return match ? parseFloat(match[0]) : NaN;
+}
+
+// --- Render Cart ---
+function renderCart() {
+  const tbody = document.querySelector('#cartTable tbody');
+  tbody.innerHTML = '';
+  let totalBGN = 0, totalEUR = 0;
+
+  cart.forEach((item, i) => {
+    const priceBGN = isFinite(item.priceBGN) ? item.priceBGN : 0;
+    const priceEUR = isFinite(item.priceEUR) ? item.priceEUR : 0;
+    const count = item.count || 1;
+    totalBGN += priceBGN * count;
+    totalEUR += priceEUR * count;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${item.product || 'Непознат продукт'}</td>
+      <td>${item.characteristics || ''}</td>
+      <td>${priceBGN.toFixed(2)} лв</td>
+      <td>${priceEUR.toFixed(2)} €</td>
+      <td>
+        <button onclick="changeCount(${i},-1)">−</button>
+        ${count}
+        <button onclick="changeCount(${i},1)">+</button>
+      </td>
+      <td><button onclick="removeItem(${i})">Премахни</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('total').textContent = 
+    `Общо: ${totalBGN.toFixed(2)} лв / ${totalEUR.toFixed(2)} €`;
+
+  saveCart();
+}
+
+// --- Cart Functions ---
+function changeCount(index, delta) {
+  cart[index].count += delta;
+  if(cart[index].count <= 0) cart.splice(index,1);
+  renderCart();
+}
+function removeItem(index) {
+  cart.splice(index,1);
+  renderCart();
+}
+
+// --- Add from URL ---
+function addFromParams() {
+  const params = new URLSearchParams(window.location.search);
+  if(!params.has('product') || !params.has('price')) return;
+
+  const product = decodeURIComponent(params.get('product').replace(/\+/g,' '));
+  const priceBGN = extractNumber(params.get('price'));
+  if(!isFinite(priceBGN)) return;
+  const priceEUR = priceBGN / EUR_RATE;
+
+  // Combine all optional params except product & price as characteristics
+  const characteristics = Array.from(params.entries())
+    .filter(([k]) => k !== 'product' && k !== 'price')
+    .map(([k,v]) => `${k}=${decodeURIComponent(v.replace(/\+/g,' '))}`)
+    .join(';');
+
+  // Merge duplicates
+  const existing = cart.find(item => 
+    item.product === product &&
+    item.characteristics === characteristics &&
+    item.priceBGN === priceBGN
+  );
+  if(existing) existing.count++;
+  else cart.push({product, characteristics, priceBGN, priceEUR, count:1});
+
+  renderCart();
+  // Clear params from URL
+  try { window.history.replaceState({}, document.title, window.location.pathname); } catch{}
+}
+
+// --- Init ---
+loadCart();
+renderCart();
+addFromParams();
+
+// Expose functions globally for buttons
+window.changeCount = changeCount;
+window.removeItem = removeItem;
+
+</script>
+</body>
+</html>

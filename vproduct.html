@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>v-product Generator</title>
+</head>
+<body>
+  <h2>v-product Generator</h2>
+
+  <label>Type:
+    <select id="type">
+      <option value="shkafdown">shkafdown</option>
+      <option value="shkafup">shkafup</option>
+      <option value="komplekti">komplekti</option>
+      <option value="ogledala">ogledala</option>
+      <option value="shkafkolona">shkafkolona</option>
+    </select>
+  </label>
+  <br><br>
+
+  <label>Product Name:
+    <input type="text" id="productname" placeholder="Огледало Атланта">
+  </label>
+  <br><br>
+
+  <label>Status (number):
+    <input type="text" id="status" min="0" value="1">
+  </label>
+  <br><br>
+
+  <label>Number of images:
+    <input type="number" id="imgCount" min="1" value="1" value="10">
+  </label>
+  <br><br>
+
+  <button onclick="generate()">Generate</button>
+
+  <h3>Generated Products:</h3>
+  <textarea id="output" rows="10" cols="100" readonly></textarea>
+
+  <script>
+    function generate() {
+      const type = document.getElementById('type').value;
+      const name = document.getElementById('productname').value.trim();
+      const status = document.getElementById('status').value;
+      const imgCount = document.getElementById('imgCount').value;
+
+      // generate array of image filenames
+      let images = [];
+      for (let i = 1; i <= imgCount; i++) {
+        images.push(`assets/${status}.${i}.png`);
+      }
+
+      const tag = `<v-product type="${type}" onclick="ReplacePreview([${images.map(i => `'${i}'`).join(', ')}], '${status}')" productimg="${images[0]}" productname="${name} (${status})"></v-product>`;
+
+      document.getElementById('output').value += tag + "\n";
+    }
+  </script>
+</body>
+</html>
