@@ -593,6 +593,24 @@ select.form-control {
           <input type="submit" value="Добави към кошницата">
         </form>
       </div>
+<!--MzQ3-->
+    <div id="MzQ3" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Огледало за баня Капа (347)">
+          Този продукт няма характеристики
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+<!--MzMy-->
+    <div id="MzMy" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Огледало за баня Лука (332)">
+          Този продукт няма характеристики
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
 <!--MzE1-->
     <div id="MzE1" style="display: none;">
         <form action="cart.html">
@@ -602,7 +620,61 @@ select.form-control {
           <input type="submit" value="Добави към кошницата">
         </form>
       </div>
+    <!--NzEwMkI=-->
+    <div id="NzEwMkI=" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Долен шкаф Утара (7102B)">
+          Този продукт няма характеристики
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+      <!--MTAwMQ==-->
+      <div id="MTAwMQ==" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Долен шкаф Падма (1001)">
+          Този продукт няма характеристики
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+      <!--NzYyM0M=-->
+    <div id="NzYyM0M=" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Долен шкаф Утара (7102B)">
+          <label for="size">Размер:</label>
+          <select name="size" id="size" onchange="setPrice(this.selectedIndex === 0 ? 198 : 205)">
+            <option value="400*200*1600">400*200*1600</option>
+            <option value="400*300*1600">400*300*1600</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+      <!--MzE2-->
+    <div id="MzE2" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Огледало Денвър (316)">
+          <label for="size">Размер:</label>
+          <select name="size" id="size" onchange="setPrice(this.options[this.selectedIndex].dataset.price); if (this.selectedIndex == 2){special('MzE2')}else{special('MzE2', true)}">
+            <option selected value="80*60" data-price="112">80x60</option>
+            <option value="90*70" data-price="125">90x70</option>
+            <option value="100*70" data-price="132">100x70</option>
+          </select>
+          <hr>
+          <label for="color">Цвят на рамка:</label>
+          <select name="color" id="color">
+            <option value="Black">Черна</option>
+            <option value="Gold">Златна</option>
+            <option id="SilverMzE2" value="Silver">Сребърна</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+    
 <!--*Price--> 
+<br>
 <h3>Цена: <span id="price"></span></h3>
 <div class="star" style="opacity: 0%;"><div class="header">    <a href="" class="logo">Избрахте продукт?</a><div class="header-right">
       
@@ -612,41 +684,103 @@ select.form-control {
 </div>
 </body>
 <script>
+function special(product, clear = false){
+  if (product == 'MzE2'){
+    if (!clear){
+    document.getElementById('SilverMzE2').disabled = true;
+    document.getElementById('SilverMzE2').innerHTML = 'Този цвят не е наличен за рамер 100*70';
+    }else{
+    document.getElementById('SilverMzE2').disabled = false;
+    document.getElementById('SilverMzE2').innerHTML = 'Сребърна';
+    }
+  }
+}
+function setPrice(price){
+  document.querySelector('div[style*="display: block"] #priceparam').value = price; document.getElementById('price').textContent = `${price} лв. / ${(price/1.95583).toFixed(2)} €`
+}
   const carousel = {
     images: [],
     currentIndex: 0,
     imgElement: document.querySelector('.preview-image')
   };
+const products = {
+"MzE2": {
+  price: 112,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/316.1.png', 'assets/316.2.png', 'assets/316.3.png', 'assets/316.4.png', 'assets/316.5.png', 'assets/316.6.png', 'assets/316.7.png', 'assets/316.8.png', 'assets/316.9.png', 'assets/316.10.png'], '316')
+},
+"MzQ3": {
+  price: 86,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/347.1.png', 'assets/347.2.png', 'assets/347.3.png', 'assets/347.4.png', 'assets/347.5.png', 'assets/347.6.png', 'assets/347.7.png', 'assets/347.8.png', 'assets/347.9.png', 'assets/347.10.png'], '347')  
+},
+"MzMy": {
+  price: 86,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/332.1.png', 'assets/332.2.png', 'assets/332.3.png', 'assets/332.4.png', 'assets/332.5.png', 'assets/332.6.png', 'assets/332.7.png', 'assets/332.8.png', 'assets/332.9.png', 'assets/332.10.png'], '332')
+},
+  "MzE0": {
+    price: 130,
+    text: "130 лв. / 66.47 €",
+    imgs: () => ReplacePreview([ 'assets/314.1.png', 'assets/314.2.png', 'assets/314.3.png', 'assets/314.4.png', 'assets/314.5.png', 'assets/314.6.png', 'assets/314.7.png', 'assets/314.8.png', 'assets/314.9.png', 'assets/314.10.png' ], '314')
+  },
+  "MTAwMQ==": {
+    price: 195,
+    text: "195 лв. / 99,7 €",
+    imgs: () => ReplacePreview(['assets/1001.1.png', 'assets/1001.2.png', 'assets/1001.3.png', 'assets/1001.4.png', 'assets/1001.5.png', 'assets/1001.6.png', 'assets/1001.7.png', 'assets/1001.8.png', 'assets/1001.9.png', 'assets/1001.10.png'], '1001')
+  },
+  "MzE1": {
+    price: 153,
+    text: "153 лв. / 78.23 €",
+    imgs: () => ReplacePreview(['assets/315.1.png', 'assets/315.2.png', 'assets/315.3.png', 'assets/315.4.png', 'assets/315.5.png', 'assets/315.6.png', 'assets/315.7.png', 'assets/315.8.png', 'assets/315.9.png', 'assets/315.10.png'], '315')
+  },
+  
+  "NzEwMkI=": {
+    price: 231,
+    text: "231 лв. / 118,11 €",
+    imgs: () =>
+      ReplacePreview(
+        [
+          "assets/7102B.1.png",
+          "assets/7102B.2.png",
+          "assets/7102B.3.png",
+          "assets/7102B.4.png",
+          "assets/7102B.5.png",
+          "assets/7102B.6.png",
+          "assets/7102B.7.png",
+          "assets/7102B.8.png",
+          "assets/7102B.9.png",
+          "assets/7102B.10.png"
+        ],
+        "7102B"
+      )
+  },
+  "NzYyM0M=": {
+    price: 198,
+    text: "198 лв. / 101,24 €",
+    imgs: () => ReplacePreview(['assets/7623C.1.png', 'assets/7623C.2.png', 'assets/7623C.3.png', 'assets/7623C.4.png', 'assets/7623C.5.png', 'assets/7623C.6.png', 'assets/7623C.7.png', 'assets/7623C.8.png', 'assets/7623C.9.png', 'assets/7623C.10.png'], '7623C') 
+   }
+};
 
-  document.addEventListener("DOMContentLoaded", function () {
-    let params = new URLSearchParams(document.location.search);
-    const targetproduct = params.get("product");
-    const price = document.getElementById("price");
+function showProduct(targetproduct) {
+  if (products[targetproduct]) {
+    const { price: p, text, imgs } = products[targetproduct];
 
-    if (targetproduct === 'MzE0') {
-      const priceparam = document.querySelector('#MzE0 #priceparam'); // scoped
-      ReplacePreview([
-        'assets/314.1.png', 'assets/314.2.png', 'assets/314.3.png',
-        'assets/314.4.png', 'assets/314.5.png', 'assets/314.6.png',
-        'assets/314.7.png', 'assets/314.8.png', 'assets/314.9.png',
-        'assets/314.10.png'
-      ], '314');
+    // now imgs is a function that executes ReplacePreview
+    imgs();
 
-      const toshow = document.getElementById("MzE0");
-      if (toshow) toshow.style.display = 'block';
-      if (priceparam) priceparam.value = 130;
-      if (price) price.textContent = '130 лв. / 66.47 €';
-    }
-
-    if (targetproduct === 'MzE1') {
-      const priceparam = document.querySelector('#MzE1 #priceparam'); // scoped
-      ReplacePreview(['assets/315.1.png', 'assets/315.2.png', 'assets/315.3.png', 'assets/315.4.png', 'assets/315.5.png', 'assets/315.6.png', 'assets/315.7.png', 'assets/315.8.png', 'assets/315.9.png', 'assets/315.10.png'], '315')
-      const toshow = document.getElementById("MzE1");
-      if (toshow) toshow.style.display = 'block';
-      if (priceparam) priceparam.value = 153;
-      if (price) price.textContent = '153 лв. / 78.23 €';
-    }
-  });
+    document.getElementById(targetproduct).style.display = "block";
+    document.querySelector(`#${CSS.escape(targetproduct)} #priceparam`).value = p;
+    price.textContent = text;
+  }
+}
+  window.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const product = params.get("product");
+  if (product) {
+    showProduct(product);
+  }
+});
 
   function ReplacePreview(imgArray, reason) {
     document.querySelector('.star').style.display = 'block';
