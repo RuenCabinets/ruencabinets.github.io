@@ -1,0 +1,382 @@
+/* forms-universal.css
+   Universal, themeable, accessible form styles
+   Author: ChatGPT (Wanets-friendly edition)
+*/
+
+/* -------------------------
+   Theme variables (easy to override)
+   ------------------------- */
+:root{
+  --form-font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --form-font-size: 16px;
+  --form-line-height: 1.35;
+
+  --color-bg: #ffffff;
+  --color-surface: #f7f8fa;
+  --color-ink: #0f1720;
+  --color-muted: #6b7280;
+  --color-primary: #2563eb;        /* blue */
+  --color-primary-contrast: #ffffff;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-focus: rgba(37,99,235,0.18);
+
+  --radius: 10px;
+  --control-padding: 0.6rem 0.9rem;
+  --control-height: 44px;
+  --border-width: 1px;
+  --border-color: rgba(15,23,32,0.12);
+  --shadow: 0 1px 2px rgba(15,23,32,0.04);
+
+  --transition-fast: 150ms cubic-bezier(.2,.9,.3,1);
+  --disabled-opacity: 0.55;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce){
+  :root{ --transition-fast: 0ms; }
+}
+
+/* -------------------------
+   Reset / baseline
+   ------------------------- */
+form, fieldset {
+  font-family: var(--form-font-family);
+  font-size: var(--form-font-size);
+  line-height: var(--form-line-height);
+  color: var(--color-ink);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+label { display: inline-block; margin-bottom: 0.28rem; font-weight: 600; color: var(--color-ink); }
+
+/* Container used to layout label + control in a single column by default */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+/* For horizontal forms: add .form-row--inline */
+.form-row--inline {
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Make all native controls use full available width by default */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="time"],
+textarea,
+select,
+output {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  display: block;
+  width: 100%;
+  min-height: var(--control-height);
+  padding: var(--control-padding);
+  border-radius: var(--radius);
+  border: var(--border-width) solid var(--border-color);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  box-shadow: var(--shadow);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  font: inherit;
+}
+
+/* Textareas should grow but be sane by default */
+textarea {
+  min-height: calc(var(--control-height) * 2);
+  resize: vertical;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+/* Placeholders */
+::placeholder { color: var(--color-muted); opacity: 1; }
+
+/* Focus ring — visible and accessible */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--color-primary) 60%, var(--border-color));
+  box-shadow: 0 6px 18px var(--color-focus);
+  transform: translateY(-1px);
+}
+
+/* Disabled / readonly */
+:where(input[disabled], textarea[disabled], select[disabled], button[disabled]){
+  opacity: var(--disabled-opacity);
+  cursor: not-allowed;
+}
+
+:where(input[readonly], textarea[readonly]){
+  background: linear-gradient(180deg, rgba(0,0,0,0.005), rgba(0,0,0,0.01));
+  cursor: default;
+}
+
+/* -------------------------
+   Buttons
+   ------------------------- */
+button, .btn, input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .6rem 1rem;
+  min-height: var(--control-height);
+  border-radius: calc(var(--radius) / 1.2);
+  border: 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+/* Variants */
+.btn--ghost {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--color-ink);
+}
+.btn--danger {
+  background: var(--color-danger);
+  color: white;
+}
+.btn--success {
+  background: var(--color-success);
+  color: white;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+/* Make submit/reset full width on small screens when used inside form */
+@media (max-width: 560px){
+  button[type="submit"], button[type="reset"], .btn--full { width: 100%; display: block; }
+}
+
+/* -------------------------
+   Checkboxes & Radios (custom-friendly)
+   ------------------------- */
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  height: auto;
+  margin: 0;
+  accent-color: var(--color-primary); /* modern browsers */
+  vertical-align: middle;
+}
+
+/* Custom control wrapper */
+.form-check {
+  display: inline-flex;
+  gap: .6rem;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.form-check input { transform: translateY(0.05em); }
+
+/* For older browsers or consistent visuals, add a classic toggle look via CSS if desired:
+   .form-check-custom { ... }  (left for specific project tweaks) */
+
+/* -------------------------
+   File input
+   ------------------------- */
+.input-file {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.6rem;
+}
+.input-file input[type="file"] {
+  padding: 0.4rem;
+  min-height: var(--control-height);
+  border-radius: var(--radius);
+}
+.input-file .file-btn { white-space: nowrap; }
+
+/* -------------------------
+   Range and progress
+   ------------------------- */
+input[type="range"]{
+  width: 100%;
+  background: transparent;
+  height: 28px;
+}
+input[type="range"]::-webkit-slider-runnable-track{
+  height: 6px;
+  border-radius: 999px;
+  background: var(--border-color);
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--color-primary);
+  margin-top: -6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* -------------------------
+   Select: add arrow & consistent appearance
+   ------------------------- */
+select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-muted) 50%),
+                    linear-gradient(135deg, var(--color-muted) 50%, transparent 50%),
+                    linear-gradient(to right, rgba(0,0,0,0.02), rgba(0,0,0,0.02));
+  background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px), 100% 100%;
+  background-size: 7px 7px, 7px 7px, 1px 1.5em;
+  background-repeat: no-repeat;
+  padding-right: 2.6rem;
+}
+
+/* -------------------------
+   Validation states
+   ------------------------- */
+:where(input:invalid, textarea:invalid, select:invalid) {
+  border-color: color-mix(in srgb, var(--color-danger) 70%, var(--border-color));
+  box-shadow: 0 6px 18px rgba(239,68,68,0.08);
+}
+
+:where(input:valid, textarea:valid, select:valid) {
+  border-color: color-mix(in srgb, var(--color-success) 60%, var(--border-color));
+  box-shadow: 0 6px 18px rgba(16,185,129,0.06);
+}
+
+/* -------------------------
+   Helper texts, errors, hints
+   ------------------------- */
+.form-hint {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+}
+
+.form-error {
+  font-size: 0.875rem;
+  color: var(--color-danger);
+  margin-top: 0.25rem;
+  font-weight: 600;
+}
+
+/* -------------------------
+   Fieldset & legend
+   ------------------------- */
+fieldset {
+  border: var(--border-width) solid var(--border-color);
+  padding: 1rem;
+  border-radius: calc(var(--radius) * 1.05);
+  background: var(--color-surface);
+  margin-bottom: 1rem;
+}
+legend {
+  font-weight: 700;
+  padding: 0 .5rem;
+}
+
+/* -------------------------
+   Small controls & compact mode
+   ------------------------- */
+.form-compact input,
+.form-compact textarea,
+.form-compact select {
+  padding: 0.35rem 0.6rem;
+  min-height: 36px;
+  border-radius: 8px;
+  font-size: 0.95em;
+}
+
+/* -------------------------
+   Accessibility helpers
+   ------------------------- */
+.sr-only {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  white-space: nowrap;
+}
+
+/* Focus visible only for keyboard users (modern browsers) */
+:where(:focus-visible) {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* -------------------------
+   Niceties: grouped controls, inline labels, icons, grid
+   ------------------------- */
+.input-with-icon {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem;
+  align-items: center;
+}
+.input-with-icon .icon {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+/* Multi-column quick layout */
+.form-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* -------------------------
+   Print styles — make forms legible when printed
+   ------------------------- */
+@media print {
+  input, textarea, select { box-shadow:none; border: 1px solid #000; color: #000; }
+  .btn, button { display:none; }
+}
+
+/* -------------------------
+   High contrast mode tweak
+   ------------------------- */
+@media (prefers-contrast: more) {
+  :root {
+    --border-color: #000;
+    --color-ink: #000;
+    --color-bg: #fff;
+    --color-muted: #111;
+  }
+}
+
+/* -------------------------
+   Tiny utilities
+   ------------------------- */
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.w-100 { width: 100%; }
+.text-muted { color: var(--color-muted); font-size: .95em; }
+.gap-sm { gap: .4rem; }
+.center { display:flex; align-items:center; justify-content:center; gap:.5rem; }
+
+/* End of forms-universal.css */
