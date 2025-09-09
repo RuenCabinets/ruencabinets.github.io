@@ -666,6 +666,48 @@ select.form-control {
           <input type="submit" value="Добави към кошницата">
         </form>
       </div>
+      <div id="NzEyN0E=" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Част от комплект Шерлок Хоумс (7127A)">
+          <label for="part">Част:</label>
+
+          <select name="part" id="part" onchange="setPrice(this.options[this.selectedIndex].dataset.price)">
+            <option value="Full" data-price="360">Комплект Шерлок Хоумс</option>
+            <option value="Cabinet" data-price="262">Шкаф Шерлок</option>
+            <option value="Mirror" data-price="98">Огледало Хоумс</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+      <div id="NzEwMkM=" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Част от комплект Ловита (7102C)">
+          <label for="part">Част:</label>
+
+          <select name="part" id="part" onchange="setPrice(this.options[this.selectedIndex].dataset.price)">
+            <option value="Full" data-price="474">Комплект Ловита</option>
+            <option value="Cabinet" data-price="297">Долен шкаф Ловита</option>
+            <option value="Upper" data-price="195">Горен шкаф Ловита</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+      <div id="NzE0MEI=" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Част от комплект Мезтли (7140B)">
+          <label for="part">Част:</label>
+
+          <select name="part" id="part" onchange="setPrice(this.options[this.selectedIndex].dataset.price)">
+            <option value="Full" data-price="352">Комплект Мезтли</option>
+            <option value="Cabinet" data-price="205">Долен шкаф Мезтли</option>
+            <option value="Upper" data-price="147">Горен шкаф Мезтли</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
       <div id="MzE3" style="display: none;">
         <form action="cart.html">
           <input type="hidden" id="priceparam" name="price" value="">
@@ -860,6 +902,21 @@ const products = {
   price: 86,
   get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
   imgs: () => ReplacePreview(['assets/347.1.png', 'assets/347.2.png', 'assets/347.3.png', 'assets/347.4.png', 'assets/347.5.png', 'assets/347.6.png', 'assets/347.7.png', 'assets/347.8.png', 'assets/347.9.png', 'assets/347.10.png'], '347')  
+},
+"NzEyN0E=": {
+  price: 360,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/7127A.1.png', 'assets/7127A.2.png', 'assets/7127A.3.png', 'assets/7127A.4.png', 'assets/7127A.5.png', 'assets/7127A.6.png', 'assets/7127A.7.png', 'assets/7127A.8.png', 'assets/7127A.9.png', 'assets/7127A.10.png'], '7127A')
+},
+"NzEwMkM=": {
+  price: 474,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/7102C.1.png', 'assets/7102C.2.png', 'assets/7102C.3.png', 'assets/7102C.4.png', 'assets/7102C.5.png', 'assets/7102C.6.png', 'assets/7102C.7.png', 'assets/7102C.8.png', 'assets/7102C.9.png', 'assets/7102C.10.png'], '7102C')
+},
+"NzE0MEI=": {
+  price: 352,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/7140B.1.png', 'assets/7140B.2.png', 'assets/7140B.3.png', 'assets/7140B.4.png', 'assets/7140B.5.png', 'assets/7140B.6.png', 'assets/7140B.7.png', 'assets/7140B.8.png', 'assets/7140B.9.png', 'assets/7140B.10.png'], '7140B')
 },
 "MzE3": {
   price: 111,
