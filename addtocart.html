@@ -307,7 +307,6 @@ select.form-control {
   background-size: contain;
   border: 1px solid rgba(0, 0, 0, 0.25);
   appearance: none;
-  color-adjust: exact;
 }
 
 /* Checkbox styling */
@@ -767,6 +766,18 @@ select.form-control {
           <input type="submit" value="Добави към кошницата">
         </form>
       </div>
+      <div id="MzQ2" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Огледало за баня Париж (346)">
+          <label for="size">Размер:</label>
+          <select name="size" id="size" onchange="setPrice(this.options[this.selectedIndex].dataset.price)">
+            <option value="60x80" data-price="86">60x80</option>
+            <option value="70x90" data-price="94">70x90</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
       <!--MzE2-->
     <div id="MzE2" style="display: none;">
         <form action="cart.html">
@@ -879,6 +890,11 @@ const products = {
   price: 101,
   get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
   imgs: () => ReplacePreview(['assets/326.1.png', 'assets/326.2.png', 'assets/326.3.png', 'assets/326.4.png', 'assets/326.5.png', 'assets/326.6.png', 'assets/326.7.png', 'assets/326.8.png', 'assets/326.9.png', 'assets/326.10.png'], '326')
+},
+"MzQ2": {
+  price: 86,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/346.1.png', 'assets/346.2.png', 'assets/346.3.png', 'assets/346.4.png', 'assets/346.5.png', 'assets/346.6.png', 'assets/346.7.png', 'assets/346.8.png', 'assets/346.9.png', 'assets/346.10.png'], '346')
 },
 "MzM1": {
   price: 86,
