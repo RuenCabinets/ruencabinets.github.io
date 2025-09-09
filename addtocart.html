@@ -566,6 +566,7 @@ select.form-control {
   }
 }
   </style>
+    <link rel="stylesheet" href="form.css">
 </head>
 <body>
   <div class="header">
@@ -710,6 +711,62 @@ select.form-control {
           <input type="submit" value="Добави към кошницата">
         </form>
       </div>
+        <div id="MzYw" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Огледало за баня Липа (360)">
+          <label for="size">Размер:</label>
+
+          <select name="size" id="size" onchange="setPrice(this.options[this.selectedIndex].dataset.price)">
+            <option value="50x50" data-price="75">50x50</option>
+            <option value="60x60" data-price="86">60x60</option>
+            <option value="70x70" data-price="94">70x70</option>
+            <option value="80x80" data-price="101">80x80</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+      <div id="NzEzOUE=" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Горен шкаф Албия (7139A)">
+          <label for="size">Размер:</label>
+
+          <select name="size" id="size" onchange="setPrice(this.options[this.selectedIndex].dataset.price)">
+            <option value="600x150x700" data-price="141">600x150x700</option>
+            <option value="700x150x750" data-price="152">700x150x750</option>
+            <option value="800x150x750" data-price="159">800x150x750</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+      <div id="NzIwNEE=" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Долен шкаф Калама (7204A)">
+          <label for="size">Размер:</label>
+
+          <select name="size" id="size" onchange="setPrice(this.options[this.selectedIndex].dataset.price)">
+            <option value="600x480x540" data-price="210">600x480x540</option>
+            <option value="700x480x540" data-price="220">700x480x540</option>
+            <option value="800x480x540" data-price="234">800x480x540</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+      <div id="MzU0" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Огледало за баня Дионис (354)">
+          <label for="size">Размер:</label>
+
+          <select name="size" id="size" onchange="setPrice(this.options[this.selectedIndex].dataset.price)">
+            <option value="70x100" data-price="231">70x100</option>
+            <option value="70x120" data-price="242">70x120</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
       <!--MzE2-->
     <div id="MzE2" style="display: none;">
         <form action="cart.html">
@@ -727,6 +784,26 @@ select.form-control {
             <option value="Black">Черна</option>
             <option value="Gold">Златна</option>
             <option id="SilverMzE2" value="Silver">Сребърна</option>
+          </select>
+          <input type="submit" value="Добави към кошницата">
+        </form>
+      </div>
+
+      <div id="MzI2" style="display: none;">
+        <form action="cart.html">
+          <input type="hidden" id="priceparam" name="price" value="">
+          <input type="hidden" name="product" value="Огледало за баня Парма (326)">
+          <label for="size">Размер:</label>
+          <select name="size" id="size" onchange="setPrice(this.options[this.selectedIndex].dataset.price)">
+            <option selected value="60*60" data-price="101">60x60</option>
+            <option value="70*70" data-price="112">70x70</option>
+            <option value="80*80" data-price="125">80x80</option>
+          </select>
+          <hr>
+          <label for="color">Цвят на рамка:</label>
+          <select name="color" id="color">
+            <option value="Black">Черна</option>
+            <option value="Gold">Златна</option>
           </select>
           <input type="submit" value="Добави към кошницата">
         </form>
@@ -783,6 +860,26 @@ const products = {
   get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
   imgs: () => ReplacePreview(['assets/7118B.1.png', 'assets/7118B.2.png', 'assets/7118B.3.png', 'assets/7118B.4.png', 'assets/7118B.5.png', 'assets/7118B.6.png', 'assets/7118B.7.png', 'assets/7118B.8.png', 'assets/7118B.9.png', 'assets/7118B.10.png'], '7118B')
 },
+"NzIwNEE=": {
+  price: 210,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/7204A.1.png', 'assets/7204A.2.png', 'assets/7204A.3.png', 'assets/7204A.4.png', 'assets/7204A.5.png', 'assets/7204A.6.png', 'assets/7204A.7.png', 'assets/7204A.8.png', 'assets/7204A.9.png', 'assets/7204A.10.png'], '7204A')
+},
+"NzEwNw==": {
+  price: 231,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/7107.1.png', 'assets/7107.2.png', 'assets/7107.3.png', 'assets/7107.4.png', 'assets/7107.5.png', 'assets/7107.6.png', 'assets/7107.7.png', 'assets/7107.8.png', 'assets/7107.9.png', 'assets/7107.10.png'], '7107')
+},
+"NzEzOUE=": {
+  price: 141,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/7139A.1.png', 'assets/7139A.2.png', 'assets/7139A.3.png', 'assets/7139A.4.png', 'assets/7139A.5.png', 'assets/7139A.6.png', 'assets/7139A.7.png', 'assets/7139A.8.png', 'assets/7139A.9.png', 'assets/7139A.10.png'], 'CP54738-A')
+},
+"MzI2": {
+  price: 101,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/326.1.png', 'assets/326.2.png', 'assets/326.3.png', 'assets/326.4.png', 'assets/326.5.png', 'assets/326.6.png', 'assets/326.7.png', 'assets/326.8.png', 'assets/326.9.png', 'assets/326.10.png'], '326')
+},
 "MzM1": {
   price: 86,
   get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
@@ -792,6 +889,16 @@ const products = {
   price: 78,
   get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
   imgs: () => ReplacePreview(['assets/350.1.png', 'assets/350.2.png', 'assets/350.3.png', 'assets/350.4.png', 'assets/350.5.png', 'assets/350.6.png', 'assets/350.7.png', 'assets/350.8.png', 'assets/350.9.png', 'assets/350.10.png'], '350')
+},
+"MzU0": {
+  price: 121,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/354.1.png', 'assets/354.2.png', 'assets/354.3.png', 'assets/354.4.png', 'assets/354.5.png', 'assets/354.6.png', 'assets/354.7.png', 'assets/354.8.png', 'assets/354.9.png', 'assets/354.10.png'], '354')
+},
+"MzYw": {
+  price: 75,
+  get text() { return `${this.price} лв. / ${(this.price / 1.95583).toFixed(2)} €`; },
+  imgs: () => ReplacePreview(['assets/360.1.png', 'assets/360.2.png', 'assets/360.3.png', 'assets/360.4.png', 'assets/360.5.png', 'assets/360.6.png', 'assets/360.7.png', 'assets/360.8.png', 'assets/360.9.png', 'assets/360.10.png'], '360')
 },
 "MzMy": {
   price: 86,
