@@ -66,7 +66,7 @@ function renderCart() {
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>${item.product || 'Непознат продукт'}</td>
-      <td>${item.characteristics || ''}</td>
+      <td>${item.characteristics.replace('=', ': ').replace('size', 'Размер').replace('color', 'Цвят на рамка').replace('part', 'Част').replace('Upper', 'Горен шкаф').replace('Cabinet', 'Долен шкаф').replace('Full', 'Цял комплект').replace('Gold', 'Златен').replace('Black', 'Черен').replace('Silver', 'Сребърен') || ''}</td>
       <td>${priceBGN.toFixed(2)} лв</td>
       <td>${priceEUR.toFixed(2)} €</td>
       <td>
